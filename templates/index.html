@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'fa/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </head>
+  <body>
+    <div class="container">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-8"><h2>Esportes <b>Detalhes</b></h2></div>
+                        <div class="col-sm-4">
+                            <a id="add-lik" href="novoEsporte/">
+                                <button type="button" class="btn btn-info add-new"><i class="fas fa-plus"></i> Add New</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Modalidade</th>
+                            <th>Tipo</th>
+                            <th>Distancia</th>
+                            <th>Sexo</th>
+                            <th>Local</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for esporte in esportes %}
+                        <tr>
+                            <td>{{ esporte.modalidade }}</td>
+                            <td>{{ esporte.tipo }}</td>
+                            <td>{{ esporte.distancia }}</td>
+                            <td>{{ esporte.sexo }}</td>
+                            <td>{{ esporte.local }}</td>
+                            <td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></i></a>
+                                <a href="edit/{{esporte.id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-pen"></i></i></a>
+                                <a href="delete/{{esporte.id}}" class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- <div class="content-test">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div> -->
+    </div>     
+    
+  </body>
+</html>

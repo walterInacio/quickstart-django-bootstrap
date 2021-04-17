@@ -33,7 +33,7 @@ def editEsporte(request, id):
             esporte.save()
             return redirect('/')
         else:
-            return render(reuquest, 'edit-esporte.html', {'form': form, 'esporte': esporte})
+            return render(request, 'edit-esporte.html', {'form': form, 'esporte': esporte})
     else:
         return render(request, 'edit-esporte.html', {'form': form, 'esporte': esporte})
 
